@@ -12,16 +12,16 @@ class CroppedImage{
         cv::Mat image;
         std::string inameName;
     public:
-        CroppedImage();
-        ~CroppedImage();
+        CroppedImage(float cp = 0.2) : cropPercentage(cp) {};
+        ~CroppedImage() {};
 
         void printHelp();
         void printCroppedImageInfo();
-        void loadImage(char *imageName);
+        void loadImage(std::string imagePath);
         void checkCropPercentage();
         void cropImage();
         void displayImage();
-        void saveImage(char *imageName);
+        void saveImage(std::string newImagePath);
 };
 
 #endif

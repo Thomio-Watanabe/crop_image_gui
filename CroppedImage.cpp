@@ -3,16 +3,6 @@
 using namespace cv;
 using namespace std;
 
-
-CroppedImage::CroppedImage()
-{
-    cropPercentage = 0.2;
-}
-
-CroppedImage::~CroppedImage()
-{
-}
-
 void CroppedImage::printHelp()
 {
     cout << "\n Usage: " << endl;
@@ -20,7 +10,7 @@ void CroppedImage::printHelp()
 }
 
 
-void CroppedImage::loadImage(char* imageName)
+void CroppedImage::loadImage(string imageName)
 {
     // Load image
     image = imread(imageName, CV_LOAD_IMAGE_COLOR );
@@ -28,6 +18,7 @@ void CroppedImage::loadImage(char* imageName)
         cout << "\n Could not open or find the image \n" << endl;
     }
 }
+
 
 void CroppedImage::printCroppedImageInfo()
 {
@@ -41,7 +32,6 @@ void CroppedImage::printCroppedImageInfo()
     cout << " image height = " << floor( (1 - 2 * cropPercentage) * image.rows) << endl;
     cout << endl;
 }
-
 
 
 void CroppedImage::checkCropPercentage()
@@ -72,31 +62,13 @@ void CroppedImage::displayImage()
     waitKey(0);
 }
 
-void CroppedImage::saveImage(char* argv )
+
+void CroppedImage::saveImage(string imagePath )
 {
     // Save the image
-    string imageName("cropped_");
-    imageName.append( argv );
-    imwrite( imageName.c_str(), image );
+    string newImagePath("cropped_");
+    newImagePath.append( imagePath );
+    imwrite( newImagePath.c_str(), image );
 }
-
-//
-// int main( int argc, char** argv )
-// {
-//
-//     CroppedImage croppedImage;
-//     // Check parsed arguments
-//     if( argc != 2 ){
-//         croppedImage.printHelp();
-//         return -1;
-//     }
-//     croppedImage.loadImage( argv[1] );
-//     croppedImage.printCroppedImageInfo();
-//     croppedImage.cropImage();
-//     croppedImage.displayImage();
-//     croppedImage.saveImage(argv[1]);
-//
-//     return 0;
-// }
 
 

@@ -3,13 +3,6 @@
 
 #include <QWidget>
 
-#include <opencv2/core/core.hpp>
-#include <opencv2/highgui/highgui.hpp>
-#include <iostream>
-//#include <cmath>
-
-
-
 namespace Ui {
     class Widget;
 }
@@ -24,6 +17,7 @@ public:
 
 private slots:
     QString cropPercentage() const;
+    void saveImagesPaths();
     void on_openImages_clicked();
 	void on_cropImages_clicked();
 	
