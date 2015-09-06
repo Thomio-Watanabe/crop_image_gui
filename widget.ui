@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>400</width>
-    <height>300</height>
+    <height>325</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -41,6 +41,16 @@
       <widget class="QPushButton" name="openImages">
        <property name="text">
         <string>Load Images</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="cropImages">
+       <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="text">
+        <string>Crop Images</string>
        </property>
       </widget>
      </item>

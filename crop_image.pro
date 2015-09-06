@@ -8,13 +8,18 @@ QT       += core gui
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
-TARGET = qt-tutorial
+TARGET = crop_image
+
 TEMPLATE = app
 
-
 SOURCES += main.cpp\
-        widget.cpp
+        widget.cpp\
+        CroppedImage.cpp
 
-HEADERS  += widget.h
+HEADERS  += widget.h\
+            CroppedImage.hpp
 
 FORMS    += widget.ui
+
+CONFIG += link_pkgconfig
+PKGCONFIG += opencv
