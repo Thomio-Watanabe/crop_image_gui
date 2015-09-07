@@ -2,7 +2,7 @@
 #include "ui_widget.h"
 #include <QFileDialog>
 
-// QTextStream is used to save the loades file names in a
+// QTextStream is used to save the load file names in a
 #include <QTextStream>
 
 #include <CroppedImage.hpp>
@@ -54,22 +54,29 @@ void Widget::on_cropImages_clicked(){
 	float cropPercentage = cpString.toFloat(&ok);
 	if(!ok){
 		// Input cropPercentage was not a valid number
-        messageBox.critical(0,"Error","Input cropPercentage was not a valid number !");
-        QCoreApplication::exit();
+        messageBox.warning(0,"Error","Input cropPercentage was not a valid number !");
 	}else{
 		if(cropPercentage < 0.0 || cropPercentage >= 0.5){
-			// Input cropPercentage is out of limits
-            messageBox.critical(0,"Error","Input cropPercentage is out of limits \n (0.0 < cp < 5.0) !");
-            QCoreApplication::exit();
+			// cropPercentage is out of limits
+            messageBox.warning(0,"Error","Input cropPercentage is out of limits \n (0.0 < cp < 0.5) !");
 		}else{
-			// Input cropPercentage is valid
+			// cropPercentage is valid
             // Load image
             CroppedImage cpImage(cropPercentage);
-            for(int i = 0; i < imagesPaths.size(); ++i){
-                QString imagePathString = imagesPaths.at(i);
-                cpImage.loadImage( imagePathString.toStdString() );
-                cpImage.cropImage();
-                cpImage.saveImage( imagePathString.toStdString() );
+            if( imagesPaths.isEmpty() ){
+                messageBox.warning(0,"Error","No images have been loaded !");
+            }else{
+                for(int i = 0; i < imagesPaths.size(); ++i){
+                    QString imagePathString = imagesPaths.at(i);
+                    cpImage.loadImage( imagePathString.toStdString() );
+                    cpImage.cropImage();
+                    QFileInfo fi(imagePathString);
+                    QString fileName = fi.fileName();
+                    QString filePath = fi.filePath();
+                    filePath.chop( fileName.size() );
+                    cpImage.saveImage(filePath.toStdString(), fileName.toStdString() );
+                }
+                messageBox.information(0,"Message","Image(s) cropped !");
             }
         }
 	}

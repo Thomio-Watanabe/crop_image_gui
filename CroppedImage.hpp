@@ -21,7 +21,7 @@ class CroppedImage{
         void checkCropPercentage();
         void cropImage();
         void displayImage();
-        void saveImage(std::string newImagePath);
+        void saveImage(std::string imagePath,std::string imageName);
 };
 
 #endif

@@ -63,12 +63,13 @@ void CroppedImage::displayImage()
 }
 
 
-void CroppedImage::saveImage(string imagePath )
+void CroppedImage::saveImage(string imagePath, string imageName )
 {
     // Save the image
-    string newImagePath("cropped_");
-    newImagePath.append( imagePath );
-    imwrite( newImagePath.c_str(), image );
+    string newImageName("cropped_");
+    newImageName.append( imageName );
+    imagePath.append(newImageName);
+    imwrite( imagePath.c_str(), image );
 }
 
 
