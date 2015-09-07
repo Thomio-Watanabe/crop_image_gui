@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>325</height>
+    <width>214</width>
+    <height>134</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -17,9 +17,9 @@
    <item row="0" column="0">
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="label">
+      <widget class="QPushButton" name="openImages">
        <property name="text">
-        <string>This program load images to crop them.</string>
+        <string>Load Images</string>
        </property>
       </widget>
      </item>
@@ -36,13 +36,6 @@
         <widget class="QLineEdit" name="lineEdit"/>
        </item>
       </layout>
-     </item>
-     <item>
-      <widget class="QPushButton" name="openImages">
-       <property name="text">
-        <string>Load Images</string>
-       </property>
-      </widget>
      </item>
      <item>
       <widget class="QPushButton" name="cropImages">
