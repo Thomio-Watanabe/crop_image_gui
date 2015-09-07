@@ -1,0 +1,15 @@
+-----------------------------------------------------------------------
+Author: Thomio Watanabe
+Date: September 2015
+-----------------------------------------------------------------------
+This Software is realeased under GNU GPLv2
+
+-----------------------------------------------------------------------
+INSTALLATION
+To install this program you must have qt and opencv installed. 
+It was tested in Mac OsX and Ubuntu 14.04
+
+-> Create a build directory then call qmake and make
+ $ qmake ..
+ $ make
+-----------------------------------------------------------------------
