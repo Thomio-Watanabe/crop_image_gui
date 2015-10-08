@@ -5,8 +5,8 @@
 // QTextStream is used to save the load file names in a
 #include <QTextStream>
 
-#include <CroppedImage.hpp>
 #include <QMessageBox>
+#include "CroppedImage.hpp"
 
 
 Widget::Widget(QWidget *parent):QWidget(parent),ui(new Ui::Widget){

@@ -12,14 +12,14 @@ TARGET = crop_image
 
 TEMPLATE = app
 
-SOURCES += main.cpp\
-        widget.cpp\
-        CroppedImage.cpp
+SOURCES += src/main.cpp\
+        src/widget.cpp\
+        src/CroppedImage.cpp
 
-HEADERS  += widget.h\
-            CroppedImage.hpp
+HEADERS  += src/widget.h\
+            src/CroppedImage.hpp
 
-FORMS    += widget.ui
+FORMS    += src/widget.ui
 
 CONFIG += link_pkgconfig
 PKGCONFIG += opencv
